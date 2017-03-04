@@ -6,7 +6,7 @@
 #define PUB_NET_PROTO_BUF_H_
 
 #include <stdio.h>
-#include "pub/net/typedef.h"
+#include "net/typedef.h"
 
 #pragma pack(push)
 #pragma pack (1)

@@ -3,7 +3,7 @@
 // Created on: 2016年8月19日.
 // Author: Paco.
 
-#include "pub/comm/user_info.h"
+#include "comm/user_info.h"
 //#include "glog/logging.h"
 #include "logic/logic_comm.h"
 
