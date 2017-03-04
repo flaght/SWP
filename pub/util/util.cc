@@ -2,7 +2,7 @@
 // util.cc
 // Created on: 2016年8月15日.
 // Author: Paco.
-#include "pub/util/util.h"
+#include "util/util.h"
 #include "thread/base_thread_lock.h"
 #include "thread/base_thread_handler.h"
 #include "logic/logic_comm.h"

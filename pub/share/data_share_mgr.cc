@@ -177,13 +177,13 @@ void DataShareMgr::CheckHeartLoss() {
       delete p;
       p = NULL;
     }
-  } LOG_ERROR2("DataShareMgr CheckHeartLoss unlock");
+  } LOG_ERROR("DataShareMgr CheckHeartLoss unlock");
 }
 
 void DataShareMgr::Heartbeat(int64 uid) {
-  LOG_ERROR2("DataShareMgr UserHeart lock");
+  LOG_ERROR("DataShareMgr UserHeart lock");
   base_logic::WLockGd lk(lock_);
-  LOG_ERROR2("DataShareMgr UserHeart locked");
+  LOG_ERROR("DataShareMgr UserHeart locked");
   UserMap::iterator it1 = user_map_.find(uid);
   if (it1 != user_map_.end()) {
     UserInfo* p = it1->second;
@@ -191,7 +191,7 @@ void DataShareMgr::Heartbeat(int64 uid) {
       p->set_heart_loss(0);
     }
   }
-  LOG_ERROR2("DataShareMgr UserHeart unlock");
+  LOG_ERROR("DataShareMgr UserHeart unlock");
 }
 
 //只清理map,内存由user_mao_管理

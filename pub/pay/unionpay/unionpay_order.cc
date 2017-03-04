@@ -18,6 +18,7 @@ const char* UnionpayOrder::mer_id_ = "777290058110048";
 
 UnionpayOrder::UnionpayOrder() {
   total_fee_ = 0;
+  price_ = 0.0;
 }
 
 UnionpayOrder::~UnionpayOrder() {

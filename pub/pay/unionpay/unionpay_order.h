@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "pub/net/typedef.h"
+#include "net/typedef.h"
 
 /*const std::string APPID = "wx9dc39aec13ee3158";
 const std::string MCH_ID = "1404391902";
