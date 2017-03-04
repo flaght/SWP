@@ -471,14 +471,15 @@ int32 UserInterface::OnObtainVerifyCode(const int32 socket,
     ss << SMS_KEY << timestamp_ << rand_code_ << obtain_verify_code.phone_num();
     base::MD5Sum md5(ss.str());
     dic.SetString(L"vToken", md5.GetHash().c_str());
-    LOG_MSG2("md5 token:", md5.GetHash());
+    LOG_MSG2("md5 token: %s", md5.GetHash().c_str());
     ss.str("");
     ss.clear();
-    ss << obtain_verify_code.phone_num() << ":"
+    ss << obtain_verify_code.phone_num() << " "
+        <<rand_code_<<" "
         << obtain_verify_code.verify_type();
     data_share_mgr_->UpdateSMSToken(ss.str(), md5.GetHash());
     struct PacketControl packet_control;
-    MAKE_HEAD(packet_control, OBTAIN_VERIFY_CODE_RLY, USER_TYPE, 0, 0, 0);
+    MAKE_HEAD(packet_control, OBTAIN_VERIFY_CODE_RLY, USER_TYPE, 0, packet->session_id, 0);
     packet_control.body_ = &dic;
     send_message(socket, &packet_control);
     //SendMsg(socket, packet, &dic, OBTAIN_VERIFY_CODE_RLY);
@@ -487,7 +488,8 @@ int32 UserInterface::OnObtainVerifyCode(const int32 socket,
     ss.clear();
     ss << SHELL_SMS << " " << obtain_verify_code.phone_num() << " "
         << rand_code_ << " " << obtain_verify_code.verify_type();
-    LOG_MSG(ss.str());
+    std::string sysc = ss.str();
+    LOG_DEBUG2("%s",sysc.c_str());
     system(ss.str().c_str());
   } while (0);
   if (err < 0) {

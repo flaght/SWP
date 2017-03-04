@@ -75,28 +75,28 @@ int32 UserManager::AssignPacket(const int32 socket, PacketHead* packet) {
 	  break;
     }
     case CHANGE_DEFAULT_BANKCARD_REQ: {
-	  interface->OnChangeDefaultBankcard(socket, packet);
-	  break;
+      interface->OnChangeDefaultBankcard(socket, packet);
+      break;
     }
     case BANK_ACCOUNT_INFO_REQ: {
       interface->OnBankAccountInfo(socket, packet);
       break;
     }
     case CREDIT_LIST_REQ: {
-	  interface->OnCreditList(socket, packet);
-	  break;
+      interface->OnCreditList(socket, packet);
+      break;
     }
     case CREDIT_DETAIL_REQ: {
-	  interface->OnCreditDetail(socket, packet);
-	  break;
+      interface->OnCreditDetail(socket, packet);
+      break;
     }
     case USER_WITHDRAW_REQ: {
-	  interface->OnUserWithdraw(socket, packet);
-	  break;
+      interface->OnUserWithdraw(socket, packet);
+      break;
     }
     case USER_WITHDRAW_LIST_REQ: {
-	  interface->OnUserWithdrawList(socket, packet);
-	  break;
+      interface->OnUserWithdrawList(socket, packet);
+      break;
     }
 		
 		/*case USER_WITHDRAW_DETAIL_REQ: {
@@ -105,8 +105,8 @@ int32 UserManager::AssignPacket(const int32 socket, PacketHead* packet) {
 	  }*/
 
     case OBTAIN_VERIFY_CODE_REQ: {
-	  interface->OnObtainVerifyCode(socket, packet);
-	  break;
+      interface->OnObtainVerifyCode(socket, packet);
+      break;
     }
 		
     case CHANGE_USER_INFO_REQ: {
