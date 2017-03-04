@@ -157,7 +157,7 @@ int32 Loginlogic::OnRegisterAccount(const int32 socket, PacketHead* packet) {
     ss << SMS_KEY << register_account.timestamp()
         << register_account.verify_code() << register_account.phone_num();
     base::MD5Sum md5(ss.str());
-    if (md5.GetHash() == register_account.verify_token()) {
+    if (md5.GetHash() != register_account.verify_token()) {
       err = VERIFY_CODE_ERR;
       break;
     }
